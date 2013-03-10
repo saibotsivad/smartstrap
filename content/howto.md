@@ -39,7 +39,7 @@ need to change the `.htaccess` file `RewriteBase` to be the folder, e.g. `Rewrit
 
 Inside `/app/control/menu.php` is the logic you should use to define the menu
 items inside the template. Check it out in the code, and have a look at
-the [demo](demo) to see it in action.
+the [demo][demo] to see it in action.
 
 
 
