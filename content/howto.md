@@ -38,11 +38,9 @@ If you are putting this app inside a subfolder, aka `site.com/test` you will
 need to change the `.htaccess` file `RewriteBase` to be the folder, e.g. `RewriteBase /test/`
 
 Inside `/app/control/menu.php` is the logic you should use to define the menu
-items inside the template. Check it out on the [demo](demo) to see an example.
-
-In fact, you should probably check out the code and the [demo](demo) anyway,
-it will show you how easy this is it use!
+items inside the template. Check it out in the code, and have a look at
+the [demo](demo) to see it in action.
 
 
 
-[demo]: http://strapper.tobiaslabs.com "Demo of this site in use: Strapper"
+[demo]: http://smarkdown.tobiaslabs.com "Demo of this site in use"

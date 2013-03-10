@@ -21,31 +21,33 @@ Basic Technology
 ----------------
 
 This thing uses:
-	* [Smarty](smarty) for templating.
-	* [Michel Fortin's](fortin) extended implementation of [Markdown](markdown).
-	* [Twitter Bootstrap](bootstrap) for the core template, but it's easy to change.
+
+* [Smarty](smarty) for templating.
+* [Michel Fortin's](fortin) extended implementation of [Markdown](markdown).
+* [Twitter Bootstrap](bootstrap) for the core template, but it's easy to change.
 
 Folder Structure
 ----------------
 
 At the root you have four basic folders:
-	* `/app` holds the functions that run the site
-	* `/content` holds the text content, and is optional
-	* `/libs` holds PHP libraries, aka Smarty and Markdown
-	* `/public` holds the linkable files, aka JavaScript, CSS, etc.
+
+* `/app` holds the functions that run the site
+* `/content` holds the text content, and is optional
+* `/libs` holds PHP libraries, aka Smarty and Markdown
+* `/public` holds the linkable files, aka JavaScript, CSS, etc.
 
 Inside these folders you have the following:
 
-	* `/app/control` the *control* functions that run the site
-	* `/app/templates` the Smarty templates that create the *display*
+* `/app/control` the *control* functions that run the site
+* `/app/templates` the Smarty templates that create the *display*
 
-	* `/libs/markdown` the Markdown to HTML library
-	* `/libs/smarty` the current version of Smarty
+* `/libs/markdown` the Markdown to HTML library
+* `/libs/smarty` the current version of Smarty
 
-	* `/public/css` the CSS used by the template
-	* `/public/ico` the favicon and other icons used by various mobile devices
-	* `/public/img` this should be any images used *by the template*
-	* `/public/js` the JavaScript used by the template
+* `/public/css` the CSS used by the template
+* `/public/ico` the favicon and other icons used by various mobile devices
+* `/public/img` this should be any images used *by the template*
+* `/public/js` the JavaScript used by the template
 
 How to Use
 ----------
@@ -55,10 +57,8 @@ can access those variable from anywhere in the code, but you can't modify them
 during runtime, so they are basically static globals.
 
 Inside `/app/control/menu.php` is the logic you should use to define the menu
-items inside the template. Check it out on the [demo](demo) to see an example.
-
-In fact, you should probably check out that [demo](demo) anyway, it will show
-you how easy this is it use!
+items inside the template. Check it out in the code, and have a look at
+the [demo](demo) to see it in action.
 
 
 
@@ -69,4 +69,4 @@ you how easy this is it use!
 [fortin]: http://michelf.ca/projects/php-markdown/ "Michel Fortin's PHP implementation of Markdown"
 [markdown]: http://daringfireball.net/projects/markdown/ "Markdown home"
 [bootstrap]: http://twitter.github.com/bootstrap/ "Twitter Bootstrap"
-[demo]: http://strapper.tobiaslabs.com "Demo of this site in use: Strapper"
+[demo]: http://smarkdown.tobiaslabs.com "Demo of this site in use"
