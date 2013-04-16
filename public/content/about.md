@@ -9,13 +9,15 @@ In other words, if you want something as a baseline for that
 company who wants the 4-page setup, or you need something for
 that web comic you are setting up.
 
+![That's pretty neat](./public/content/thatsprettyneat.jpg "How neat is that?")
+
 It's written in PHP, because even though [PHP sucks][phpsucks]
 it is still one of the most widely used on things like shared
-hosts and so on. Some day I'm going to rewrite this for people
-using something cool like [node.js][nodejs] but for
-now I want something I can use with very little effort, and
+hosts and so on, which makes it *very usable*. Some day I'm going
+to rewrite this for people using something cool like [node.js][nodejs]
+but for now I want something I can use with very little effort, and
 that will work on the majority of servers *that people use*.
-(Hint: Most people's shared host space doesn't allow things
+(Sad Hint: Most people's shared host space doesn't allow things
 like Node, for technical reasons.)
 
 Basic Technology

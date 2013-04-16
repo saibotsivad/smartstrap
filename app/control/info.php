@@ -17,7 +17,7 @@ function info() {
 		// this makes it like "My Site - Post Title"
 		"dom_separator" => " - ",
 		// this is the link to where you deploy this, aka "http://site.com", no trailing slash
-		"link" => "http://localhost",
+		"link" => "http://localhost/smarkdown",
 		// this is the folder where your markdown files go, a couple samples are included
 		"content_folder" => "./public/content",
 		// you can change the site wide date format here, although you might never use it

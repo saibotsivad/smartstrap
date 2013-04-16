@@ -16,7 +16,7 @@ The template used is Smarty, mostly because it's a well written
 PHP templating engine with some good basic functionality buit in.
 
 The included template is the Twitter Bootstrap, because it's well
-written and conforms to specs very well.
+written and conforms to specs pretty well.
 
 There's more information available [here](about), some instructions
 on [how to use](howto), and a [demo][demo] as well.

@@ -10,22 +10,20 @@ Folder Structure
 At the root you have four basic folders:
 
 * `/app` holds the functions that run the site
-* `/content` holds the text content, and is optional
 * `/libs` holds PHP libraries, aka Smarty and Markdown
-* `/public` holds the linkable files, aka JavaScript, CSS, etc.
+* `/public` holds the linkable files, aka JavaScript, CSS, etc. and the actual content files
 
 Inside these folders you have the following:
 
 * `/app/control` the *control* functions that run the site
 * `/app/templates` the Smarty templates that create the *display*
-
 * `/libs/markdown` the Markdown to HTML library
 * `/libs/smarty` the current version of Smarty
-
 * `/public/css` the CSS used by the template
 * `/public/ico` the favicon and other icons used by various mobile devices
 * `/public/img` this should be any images used *by the template*
 * `/public/js` the JavaScript used by the template
+* `/public/content` the content, aka, markdown and images
 
 How to Use
 ----------

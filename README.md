@@ -10,12 +10,7 @@ that web comic you are setting up.
 
 It's written in PHP, because even though [PHP sucks][phpsucks]
 it is still one of the most widely used on things like shared
-hosts and so on. Some day I'm going to rewrite this for people
-using something cool like [node.js][nodejs] but for
-now I want something I can use with very little effort, and
-that will work on the majority of servers *that people use*.
-(Hint: Most people's shared host space doesn't allow things
-like Node, for technical reasons.)
+hosts and so on, making it a very *usable* language.
 
 Basic Technology
 ----------------
@@ -32,29 +27,29 @@ Folder Structure
 At the root you have four basic folders:
 
 * `/app` holds the functions that run the site
-* `/content` holds the text content, and is optional
 * `/libs` holds PHP libraries, aka Smarty and Markdown
-* `/public` holds the linkable files, aka JavaScript, CSS, etc.
+* `/public` holds the linkable files, aka JavaScript, CSS, etc. and the actual content files
 
 Inside these folders you have the following:
 
 * `/app/control` the *control* functions that run the site
 * `/app/templates` the Smarty templates that create the *display*
-
 * `/libs/markdown` the Markdown to HTML library
 * `/libs/smarty` the current version of Smarty
-
 * `/public/css` the CSS used by the template
 * `/public/ico` the favicon and other icons used by various mobile devices
 * `/public/img` this should be any images used *by the template*
 * `/public/js` the JavaScript used by the template
+* `/public/content` the content, aka, markdown and images
+
 
 How to Use
 ----------
 
-Look inside `/app/control/info.php` for where to change or set variables, you
-can access those variable from anywhere in the code, but you can't modify them
-during runtime, so they are basically static globals.
+Look inside `/app/control/info.php` for where to change or set variables.
+
+You can access those variable from anywhere in the code, they are
+basically static globals.
 
 Inside `/app/control/menu.php` is the logic you should use to define the menu
 items inside the template. Check it out in the code, and have a look at
