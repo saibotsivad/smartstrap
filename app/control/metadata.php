@@ -10,7 +10,7 @@ function parse_metadata($string) {
 		$metadata = array();
 		foreach ($lines as $line) {
 			if (strlen($line) > 0) {
-				$data = preg_split("/\s*:\s*/", $line);
+				$data = explode(":", $line, 2);
 				if (count($data) === 2) {
 					$metadata[$data[0]] = $data[1];
 				}
