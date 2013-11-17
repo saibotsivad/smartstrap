@@ -1,9 +1,9 @@
 <?php
 
-function get_template_variables(array $_GET) {
+function get_template_variables(array $get) {
 
 	// based on the URL, get the item or item list
-	$url = empty($_GET) ? array() : explode("/", rtrim($_GET["params"], "/"));
+	$url = empty($get) ? array() : explode("/", rtrim($get["params"], "/"));
 	$url_size = count($url);
 
 	// basic page information

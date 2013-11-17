@@ -19,6 +19,13 @@ require('./libs/smarty/Smarty.class.php');
 // and markdown for the content
 require('./libs/markdown/markdown.php');
 
+// set the timezone for the Markdown date conversion, this defaults to UTC unless overridden in the info.php
+if (function_exists('date_default_timezone_set')) {
+	$timezone = info('timezone');
+	date_default_timezone_set($timezone == null ? 'UTC' : $timezone);
+}
+
+
 // overwrite the Smarty directory settings
 class Smarty_Custom extends Smarty {
 	function __construct()
@@ -28,8 +35,7 @@ class Smarty_Custom extends Smarty {
 		// smarty expects the template files (*.tpl) to be here
 		$this->setTemplateDir('./app/templates/');
 
-		// the cached and compiled output goes in
-		// these, thus the gitignore
+		// the compiled templates
 		$this->setCompileDir('./temp/templates_c/');
 		$this->setCacheDir('./temp/cache/');
 
