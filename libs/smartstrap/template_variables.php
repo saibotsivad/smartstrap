@@ -10,7 +10,7 @@ function get_template_variables(array $get) {
 	$info = info();
 	$vars = array(
 		"info" => $info,
-		"menus" => menu($url)
+		"menus" => fix_menu_item_list(menu_item_list(), $url)
 	);
 
 	// if a URL subfolder is specified, try to get the content
@@ -135,4 +135,35 @@ function file_content_list($base, array $files) {
 	}
 
 	return $data;
+}
+
+/**
+ * Things that happen:
+ *
+ *   - check and add `active` to active menu item
+ *   - add `odd` to every other row
+ *   - change links to absolute
+*/
+function fix_menu_item_list($menu_item_list, array $url) {
+	$result_set = array();
+	$even_or_odd = 0;
+	foreach ($menu_item_list as $menu_item) {
+		if ($even_or_odd % 2 > 0) {
+			$menu_item['class'] = "odd";
+		}
+		$even_or_odd++;
+
+		if ($menu_item['link'] == $url[0]) {
+			$menu_item['class'] = $menu_item['class'] . " active";
+
+			if (sizeof($url) > 0 && $menu_item['children']) {
+				$menu_item['children'] = fix_menu_item_list($menu_item['children'], array_slice($url, 1));
+			}
+		}
+
+		$menu_item['link'] = info('base_url') . "/" . $menu_item['link'];
+
+		$result_set[] = $menu_item;
+	}
+	return $result_set;
 }

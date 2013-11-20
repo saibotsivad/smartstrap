@@ -12,56 +12,51 @@ It's written in PHP, because even though [PHP sucks][phpsucks]
 it is still one of the most widely used on things like shared
 hosts and so on, making it a very *usable* language.
 
-Basic Technology
-----------------
-
-This thing uses:
-
-* [Smarty][smarty] for templating.
-* [Michel Fortin's][fortin] extended implementation of [Markdown][markdown].
-* [Twitter Bootstrap][bootstrap] for the core template, but it's easy to change.
-
 Folder Structure
 ----------------
 
-At the root you have four basic folders:
+At the root you have two folders, the `lib` and `site` folders.
 
-* `/app` holds the functions that run the site
-* `/libs` holds PHP libraries, aka Smarty and Markdown
-* `/public` holds the linkable files, aka JavaScript, CSS, etc. and the actual content files
+lib
+---
 
-Inside these folders you have the following:
+* `/lib/smarty` : [Smarty][smarty] for templating.
+* `/lib/markdown` : [Michel Fortin's][fortin] extended implementation of [Markdown][markdown].
+* `/lib/smartstrap` : [This][smartstrap], the smartstrap functions
 
-* `/app/control` the *control* functions that run the site
-* `/app/templates` the Smarty templates that create the *display*
-* `/libs/markdown` the Markdown to HTML library
-* `/libs/smarty` the current version of Smarty
-* `/public/css` the CSS used by the template
-* `/public/ico` the favicon and other icons used by various mobile devices
-* `/public/img` this should be any images used *by the template*
-* `/public/js` the JavaScript used by the template
-* `/public/content` the content, aka, markdown and images
+site
+----
 
+* `/site/content` : The content is markdown files with metadata, and any embedded images
+* `/site/template` : The template files (tpl, css, js, etc.) for the site
 
 How to Use
 ----------
 
-Look inside `/app/control/info.php` for where to change or set variables.
+The basic idea is this: point your Apache configured domain to `/site` and
+all that is inside there is now public.
 
-You can access those variable from anywhere in the code, they are
+Look inside `/site/index.php` for the configuration details like site title, folder
+paths, etc. You can access those variable from anywhere in the code, they are
 basically static globals.
 
-Inside `/app/control/menu.php` is the logic you should use to define the menu
-items inside the template. Check it out in the code, and have a look at
-the [demo][demo] to see it in action.
+Put the page text and metadata as markdown files inside `/site/content`, and any images
+specific to those pages as well.
 
+If you don't like the default template, just go inside `/site/template` and change it.
 
+Menu Bar
+--------
 
+You'll notice that inside the `index.php` configuration is an array of markdown files, and
+those happen to be the ones that show up in the menu bar. Well that's the basic idea.
+
+If you put a markdown file name in the menu array, it'll show up automagically, and inside
+the template you'll get a `menu.class` variable, which will include `active` if you are on
+that page.
 
 [phpsucks]: http://webonastick.com/php.html "PHP Sucks"
-[nodejs]: http://nodejs.org/ "Node.js home"
 [smarty]: http://www.smarty.net/ "Smarty templating engine"
 [fortin]: http://michelf.ca/projects/php-markdown/ "Michel Fortin's PHP implementation of Markdown"
 [markdown]: http://daringfireball.net/projects/markdown/ "Markdown home"
-[bootstrap]: http://twitter.github.com/bootstrap/ "Twitter Bootstrap"
 [demo]: http://smarkdown.tobiaslabs.com "Demo of this site in use"

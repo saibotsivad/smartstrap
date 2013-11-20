@@ -7,7 +7,7 @@
     <meta name="description" content="{$info.description}">
 
     <!-- Le styles -->
-    <link href="{$info.link}/public/css/bootstrap.css" rel="stylesheet">
+    <link href="{$info.template_url}/css/bootstrap.css" rel="stylesheet">
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -17,7 +17,7 @@
         width: 620px;
       }
     </style>
-    <link href="{$info.link}/public/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{$info.template_url}/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -25,11 +25,11 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{$info.link}/public/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{$info.link}/public/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{$info.link}/public/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="{$info.link}/public/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="{$info.link}/public/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{$info.template_url}/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{$info.template_url}/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{$info.template_url}/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="{$info.template_url}/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="{$info.template_url}/ico/favicon.png">
   </head>
 
   <body>
@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="{$info.link}">{$info.site_title}</a>
+          <a class="brand" href="{$info.base_url}">{$info.site_title}</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               {foreach $menus as $menu}
@@ -51,7 +51,7 @@
             </ul>
             <form class="navbar-search pull-right" method="get" action="http://www.google.com/search">
               <input type="text" class="search-query" placeholder="Search" name="q">
-              <input type="checkbox" name="sitesearch" value="{$info.link}" checked="checked" style="display:none;">
+              <input type="checkbox" name="sitesearch" value="{$info.template_url}" checked="checked" style="display:none;">
             </form>
           </div><!--/.nav-collapse -->
         </div>
