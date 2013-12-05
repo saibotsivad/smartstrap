@@ -5,6 +5,8 @@
     <title>{$info.dom_title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{$info.description}">
+    <link href="{$info.baseurl}?feed=atom" type="application/atom+xml" rel="alternate" title="{$info.dom_title} ATOM Feed">
+    <link href="{$info.baseurl}?feed=rss"  type="application/rss+xml"  rel="alternate" title="{$info.dom_title} RSS Feed" />
 
     <!-- Le styles -->
     <link href="{$info.template_url}/css/bootstrap.css" rel="stylesheet">

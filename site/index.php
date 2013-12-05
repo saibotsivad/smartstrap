@@ -14,7 +14,7 @@ function info($key = null) {
 	$vars = array(
 		// the site title is what goes in the the "banner" title
 		"site_title" => "SMARTSTRAP",
-		// used in the <header> block meta tag, and also used in the "banner" description
+		// used in the <header> block meta tag, the RSS/Atom feeds, and the "banner" description
 		"description" => "Demo site for the smartstrap framework thingy.",
 		// this is what shows up in the browser title, it's appended/prepended by the page title
 		"dom_title" => "SMARTSTRAP",
@@ -24,6 +24,11 @@ function info($key = null) {
 		"base_url" => "http://smartstrap.dev",
 		// this is the URL to the public template folder
 		"template_url" => "http://smartstrap.dev/template",
+		// you can change the site wide date format here, although you might never use this
+		"date_format" => "F j, Y",
+
+		// === You probably don't need to edit below this line ===
+
 		// install path for the SmartStrap CMS
 		"install_path" => "../libs",
 		// caching (turn off during development by setting to false)
@@ -31,9 +36,7 @@ function info($key = null) {
 		// this is the folder where your markdown files go, a couple samples are included
 		"content_folder" => "./content",
 		// this is the folder where your template files go, like TPL/CSS/JS/etc files
-		"template_folder" => "./template",
-		// you can change the site wide date format here, although you might never use it
-		"date_format" => "F j, Y"
+		"template_folder" => "./template"
 	);
 	return $key == null ? $vars : $vars[$key];
 }
@@ -65,6 +68,7 @@ function menu_item_list() {
 
 // if you need more complex things change these files
 require(info('install_path') . '/smartstrap/template_variables.php');
+require(info('install_path') . '/smartstrap/feed.php');
 require(info('install_path') . '/smartstrap/metadata.php');
 
 // ===== NO NEED TO EDIT BELOW HERE =====
@@ -72,7 +76,7 @@ require(info('install_path') . '/smartstrap/metadata.php');
 // the site uses Smarty for the templating
 require(info('install_path') . '/smarty/Smarty.class.php');
 
-// and markdown for the content
+// markdown for the content
 require(info('install_path') . '/markdown/markdown.php');
 
 // set the timezone for the Markdown date conversion, this defaults to UTC unless overridden in the info.php
@@ -94,17 +98,20 @@ class Smarty_Custom extends Smarty {
 		$this->setCompileDir(info('install_path') . '/smartstrap/temp/templates_c/');
 		$this->setCacheDir(info('install_path') . '/smartstrap/temp/cache/');
 
-		// for local testing, set this to false to turn
-		// off caching, but in production caching will
-		// make you able to handle serious loads pretty well
 		$this->caching = info('caching');
 	}
 }
 $smarty = new Smarty_Custom;
 
-// set template variables by this function, it is where
-// the majority of the work happens
-$vars = get_template_variables($_GET);
+// we intercept for feed requests to use a built in template
+$vars = null;
+if (isset($_GET['feed'])) {
+	$vars = get_feed_variables($_GET);
+} else {
+	// set template variables by this function, it is where
+	// the majority of the work happens
+	$vars = get_template_variables($_GET);
+}
 foreach ($vars as $key => $val) {
 	$smarty->assign($key, $val);
 }

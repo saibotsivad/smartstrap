@@ -39,6 +39,9 @@ Inside `/app/control/menu.php` is the logic you should use to define the menu
 items inside the template. Check it out in the code, and have a look at
 the [demo][demo] to see it in action.
 
+If you really need to, you can fiddle with the [menu][menu] settings, but it
+should be basically auto-magical!
 
 
 [demo]: http://smarkdown.tobiaslabs.com "Demo of this site in use"
+[menu]: ./howto/menu "Menu settings"

@@ -95,6 +95,7 @@ function parse_file($filename) {
 	// parse the file for markdown and metadata
 	$content = parse_metadata($text);
 
+	$content['filename'] = $filename;
 	return $content;
 }
 

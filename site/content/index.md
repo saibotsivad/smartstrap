@@ -1,9 +1,9 @@
-title: SMARKDOWN
-date: 2013-03-05
+title: SMARTSTRAP
+date: 2013-03-07
 
 ---
 
-Hey there, thanks for looking at [Smarkdown][smarkdowngit]!
+Hey there, thanks for looking at [SmartStrap][smartstrap]!
 
 What it is
 ----------
@@ -21,6 +21,6 @@ written and conforms to specs pretty well.
 There's more information available [here](about), some instructions
 on [how to use](howto), and a [demo][demo] as well.
 
-[smarkdowngit]: https://github.com/saibotsivad/smarkdown "smarkdown git repo"
+[smartstrap]: https://github.com/saibotsivad/smartstrap "smartstrap git repo"
 [markdown]: http://daringfireball.net/projects/markdown/ "Markdown specs"
-[demo]: http://smarkdown.tobiaslabs.com "smarkdown demo"
+[demo]: http://smartstrap.tobiaslabs.com "smartstrap demo"
