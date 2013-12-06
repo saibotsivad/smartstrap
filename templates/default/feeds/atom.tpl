@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+{$xml_header}
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>{$info.site_title}</title>
     <subtitle>{$info.description}</subtitle>

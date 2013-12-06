@@ -47,6 +47,10 @@ function get_feed_variables(array $get) {
 		header("Content-type: application/json");
 		$vars['content'] = json_encode($vars['content_list']);
 		unset($vars['content_list']);
+	} else {
+		// header("Content-type: text/xml");
+		header("Content-type: application/" . $feed_type . "+xml");
+		$vars['xml_header'] = '<?xml version="1.0" encoding="utf-8"?>';
 	}
 
 	$vars['template'] = 'feeds/' . $vars['template'] . '.tpl';

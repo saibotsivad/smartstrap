@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+{$xml_header}
 <rss version="2.0">
    <channel>
 	  <title>{$info.site_title}</title>
