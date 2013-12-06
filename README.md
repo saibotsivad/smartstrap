@@ -8,42 +8,65 @@ In other words, if you want something as a baseline for that
 company who wants the 4-page setup, or you need something for
 that web comic you are setting up.
 
-It's written in PHP, because even though [PHP sucks][phpsucks]
-it is still one of the most widely used on things like shared
-hosts and so on, making it a very *usable* language.
-
 Folder Structure
 ----------------
-
-At the root you have two folders, the `lib` and `site` folders.
 
 lib
 ---
 
-* `/lib/smarty` : [Smarty][smarty] for templating.
-* `/lib/markdown` : [Michel Fortin's][fortin] extended implementation of [Markdown][markdown].
-* `/lib/smartstrap` : [This][smartstrap], the smartstrap functions
+* `/libs/smarty` : [Smarty][smarty] for templating.
+* `/libs/markdown` : [Michel Fortin's][fortin] extended implementation of [Markdown][markdown].
+* `/libs/smartstrap` : [This][smartstrap], the smartstrap functions
 
 site
 ----
 
-* `/site/content` : The content is markdown files with metadata, and any embedded images
-* `/site/template` : The template files (tpl, css, js, etc.) for the site
+* `/site/content --> ../content/domain.com` : The content is markdown files with metadata, and any embedded images. Symlinked.
+* `/site/template --> ../templates/default` : The template files (tpl, css, js, etc.) for the site. Symlinked.
+* `index.php` : The main controller
+* `.htaccess` : Handles the prettification of the URLs
 
-How to Use
-----------
+How to Use: Simple Method
+-------------------------
 
-The basic idea is this: point your Apache configured domain to `/site` and
-all that is inside there is now public.
+Suppose you are on your server, and you've got Apache pointing `site.com` to `/usr/www/site.com`
 
-Look inside `/site/index.php` for the configuration details like site title, folder
-paths, etc. You can access those variable from anywhere in the code, they are
-basically static globals.
+Go to `/usr/www` and `git clone https://github.com/saibotsivad/smartstrap.git`
 
-Put the page text and metadata as markdown files inside `/site/content`, and any images
-specific to those pages as well.
+You've now got SmartStrap checked out, like `/usr/www/smartstrap`
 
-If you don't like the default template, just go inside `/site/template` and change it.
+Now simply point Apache to the site folder by symlinking, like this (make sure to delete the folder `/usr/www/site.com` first):
+
+`ln -s /usr/www/smartstrap/site /usr/www/site.com`
+
+Go inside the file `smartstrap-configs.php` and setup your site name and URL.
+
+Start writing! It's all inside `/usr/www/site.com/content`
+
+How to Use: Like a Boss
+-----------------------
+
+Suppose you are on your server, and you've got Apache pointing `site.com` to `/usr/www/site.com`
+
+Go to `/usr/www` and `git clone https://github.com/saibotsivad/smartstrap.git`
+
+You've now got SmartStrap checked out, like `/usr/www/smartstrap`
+
+I recommend the following folder structure:
+* `/usr/www/smartstrap` : Hold the smartstrap library and controls
+* `/usr/www/public/mycontent` : Inside here will be your Markdown files and pictures, probably from a repo
+* `/usr/www/public/mytemplate` : This would be a single template, also probably from a repo
+
+If that's your setup, you'll need to symlink the 4 site objects into your Apache site folder, like this:
+
+`ln -s /usr/www/smartstrap/site/index.php /usr/www/site.com/index.php`
+`ln -s /usr/www/smartstrap/site/.htaccess /usr/www/site.com/.htaccess`
+`ln -s /usr/www/public/mytemplate /usr/www/site.com/template`
+`ln -s /usr/www/public/mycontent /usr/www/site.com/content`
+
+Then you should copy the `smartstrap-configs.php` file to `/usr/www/smartstrap-configs.php` which will
+let you configure your site. At this point, if you use git to pull down the latest version, there won't
+be any merge issues, because you aren't changing anything inside the smartstrap folders!
 
 Menu Bar
 --------

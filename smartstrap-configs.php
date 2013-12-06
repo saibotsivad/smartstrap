@@ -23,25 +23,26 @@ class SmartStrapConfig {
 			// this makes it like "My Site - Post Title"
 			"dom_separator" => " - ",
 			// you can change the site wide date format here, although you might never use this
-			"date_format" => "F j, Y",
-			// this is the file-system location
-			"content_folder" => "../content/smartstrap.tobiaslabs.com/",
-			// this is the file-system location
-			"template_folder" => "../templates/default/"
+			"date_format" => "F j, Y"
 		)
 	);
 	
+	// ===== YOU SHOULDN'T NEED TO EDIT BELOW HERE =====
+
 	// these are global configurations that can be overwritten by setting them in the per-site configs
 	public $global_configs = array(
+		"content_folder" => "./content/",
+		"template_folder" => "./template/",
 		"install_path" => "../libs",
-		// caching (turn off during development by setting to false)
-		"caching" => false // Smarty::CACHING_LIFETIME_CURRENT
+		// use 0 for no caching, -1 for infinite caching, and any positive value for number of seconds
+		"caching" => -1
 	);
 
 	// combines the site_list and global_configs, overwriting the global with the site if there are dupes
 	public function site($site) {
 		$output = $this->global_configs;
 		$output['site'] = $site;
+		$output['baseurl'] = '//' . $site;
 		foreach ($this->site_list[$site] as $key => $value) {
 			$output[$key] = $value;
 		}

@@ -69,11 +69,18 @@ class Smarty_Custom extends Smarty {
 		// smarty expects the template files (*.tpl) to be here
 		$this->setTemplateDir(info('template_folder'));
 
-		// the compiled templates
-		$this->setCompileDir(info('install_path') . '/smartstrap/temp/templates_c/');
-		$this->setCacheDir(info('install_path') . '/smartstrap/temp/cache/');
+		// the compiled templates are per domain
+		$this->setCompileDir(info('install_path') . '/smarty/temp/' . info('site') . '/templates_c/');
+		$this->setCacheDir(info('install_path') . '/smarty/temp/' . info('site') . '/cache/');
 
-		$this->caching = info('caching');
+		$cache_length = info('caching');
+		if ($cache_length === 0) {
+			$this->caching = false;
+		} else if ($cache_length < 0) {
+			$this->caching = Smarty::CACHING_LIFETIME_CURRENT;
+		} else if ($cache_length > 0) {
+			$this->caching = $cache_length;
+		}
 	}
 }
 $smarty = new Smarty_Custom;
