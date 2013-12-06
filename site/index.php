@@ -8,9 +8,7 @@
 // only how it's turned into a configuration function within SmartStrap.
 
 // up one folder is the default configs file, but if you use the suggested layout you can have your cake and eat it too!
-if (file_exists('../../../smartstrap-configs.php')) {
-	require('../../../smartstrap-configs.php');
-} else if (file_exists('../../smartstrap-configs.php')) {
+if (file_exists('../../smartstrap-configs.php')) {
 	require('../../smartstrap-configs.php');
 } else {
 	require('../smartstrap-configs.php');
