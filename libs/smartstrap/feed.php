@@ -77,7 +77,7 @@ function sort_feed_list(array $feed_list) {
 }
 
 function generate_link_from_filename($filename) {
-	$url = info('base_url') . substr($filename, strlen(info('content_folder')));
+	$url = 'http:' . info('baseurl') . substr($filename, strlen(info('content_folder')));
 	if (preg_match('/\.\w+$/', $url, $matches)) {
 		$url = substr($url, 0, strlen($url) - strlen($matches[0]));
 	}
