@@ -21,31 +21,6 @@ function info($key = null) {
 	return $key == null ? $smartstrap_configuration_site : $smartstrap_configuration_site[$key];
 }
 
-/**
- * Menu Bar configuration
- *
- * This will automatically add the class `active` to the correct item, and `odd` to every other.
-*/
-function menu_item_list() {
-	$vars = array(
-		array(
-			"link" => "about",
-			"name" => "About"
-		),
-		array(
-			"link" => "howto",
-			"name" => "How To",
-			"children" => array(
-				array(
-					"link" => "menu",
-					"name" => "Menu Bar"
-				)
-			)
-		)
-	);
-	return $vars;
-}
-
 if (function_exists('date_default_timezone_set')) {
 	$timezone = info('timezone');
 	date_default_timezone_set($timezone == null ? 'UTC' : $timezone);

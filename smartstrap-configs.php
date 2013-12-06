@@ -23,7 +23,25 @@ class SmartStrapConfig {
 			// this makes it like "My Site - Post Title"
 			"dom_separator" => " - ",
 			// you can change the site wide date format here, although you might never use this
-			"date_format" => "F j, Y"
+			"date_format" => "F j, Y",
+			// this is the menu bar configuration, there's a name and a link per, and then children are possible
+			"menu_list" => array(
+				array(
+					"link" => "about",
+					"name" => "About"
+				),
+				array(
+					"link" => "howto",
+					"name" => "How To",
+					"children" => array(
+						array(
+							"link" => "menu",
+							"name" => "Menu Bar"
+						)
+					)
+				)
+			)
+
 		)
 	);
 	
@@ -31,11 +49,11 @@ class SmartStrapConfig {
 
 	// these are global configurations that can be overwritten by setting them in the per-site configs
 	public $global_configs = array(
-		"content_folder" => "./content/",
-		"template_folder" => "./template/",
+		"content_folder" => "./content",
+		"template_folder" => "./template",
 		"install_path" => "../libs",
 		// use 0 for no caching, -1 for infinite caching, and any positive value for number of seconds
-		"caching" => -1
+		"caching" => 100
 	);
 
 	// combines the site_list and global_configs, overwriting the global with the site if there are dupes

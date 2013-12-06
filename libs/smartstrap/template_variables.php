@@ -10,7 +10,7 @@ function get_template_variables(array $get) {
 	$info = info();
 	$vars = array(
 		"info" => $info,
-		"menus" => fix_menu_item_list(menu_item_list(), $url)
+		"menus" => fix_menu_item_list(info('menu_list'), $url)
 	);
 
 	// if a URL subfolder is specified, try to get the content
