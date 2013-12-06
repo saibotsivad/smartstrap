@@ -1,44 +1,24 @@
 <?php
  /**
- * smarkdown
- * @package smarkdown
+ * smartstrap
+ * @package smartstrap
  */
 
-/**
- * Settings and configs for the SmartStrap CMS are available via here.
- *
- * Anything in here is essentially a global variable, this is where you
- * configure most of SmartStrap.
-*/
+// The settings and configurations of SmartStrap are found in the file called "configs.php", this is
+// only how it's turned into a configuration function within SmartStrap.
+
+// up one folder is the default configs file, but if you use the suggested layout you can have your cake and eat it too!
+if (file_exists('../../smartstrap-configs.php')) {
+	require('../../smartstrap-configs.php');
+} else {
+	require('../smartstrap-configs.php');
+}
+
+$smartstrap_configuration = new SmartStrapConfig();
+$smartstrap_configuration_site = $smartstrap_configuration->site($_SERVER['HTTP_HOST']);
 function info($key = null) {
-	$vars = array(
-		// the site title is what goes in the the "banner" title
-		"site_title" => "SMARTSTRAP",
-		// used in the <header> block meta tag, the RSS/Atom feeds, and the "banner" description
-		"description" => "Demo site for the smartstrap framework thingy.",
-		// this is what shows up in the browser title, it's appended/prepended by the page title
-		"dom_title" => "SMARTSTRAP",
-		// this makes it like "My Site - Post Title"
-		"dom_separator" => " - ",
-		// this is the link to where you deploy this, aka "http://site.com", no trailing slash
-		"base_url" => "http://smartstrap.dev",
-		// this is the URL to the public template folder
-		"template_url" => "http://smartstrap.dev/template",
-		// you can change the site wide date format here, although you might never use this
-		"date_format" => "F j, Y",
-
-		// === You probably don't need to edit below this line ===
-
-		// install path for the SmartStrap CMS
-		"install_path" => "../libs",
-		// caching (turn off during development by setting to false)
-		"caching" => false, // Smarty::CACHING_LIFETIME_CURRENT,
-		// this is the folder where your markdown files go, a couple samples are included
-		"content_folder" => "./content",
-		// this is the folder where your template files go, like TPL/CSS/JS/etc files
-		"template_folder" => "./template"
-	);
-	return $key == null ? $vars : $vars[$key];
+	global $smartstrap_configuration_site;
+	return $key == null ? $smartstrap_configuration_site : $smartstrap_configuration_site[$key];
 }
 
 /**
@@ -66,24 +46,19 @@ function menu_item_list() {
 	return $vars;
 }
 
-// if you need more complex things change these files
-require(info('install_path') . '/smartstrap/template_variables.php');
-require(info('install_path') . '/smartstrap/feed.php');
-require(info('install_path') . '/smartstrap/metadata.php');
-
-// ===== NO NEED TO EDIT BELOW HERE =====
-
-// the site uses Smarty for the templating
-require(info('install_path') . '/smarty/Smarty.class.php');
-
-// markdown for the content
-require(info('install_path') . '/markdown/markdown.php');
-
-// set the timezone for the Markdown date conversion, this defaults to UTC unless overridden in the info.php
 if (function_exists('date_default_timezone_set')) {
 	$timezone = info('timezone');
 	date_default_timezone_set($timezone == null ? 'UTC' : $timezone);
 }
+
+// if you need more complex things change these files
+require(info('install_path') . '/smartstrap/template_variables.php');
+require(info('install_path') . '/smartstrap/feed.php');
+require(info('install_path') . '/smartstrap/metadata.php');
+// the site uses Smarty for the templating
+require(info('install_path') . '/smarty/Smarty.class.php');
+// markdown for the content
+require(info('install_path') . '/markdown/markdown.php');
 
 // overwrite the Smarty directory settings
 class Smarty_Custom extends Smarty {
