@@ -2,7 +2,7 @@
 <rss version="2.0">
    <channel>
 	  <title>{$info.site_title}</title>
-      <link>{$info.base_url}</link>
+      <link>http:{$info.baseurl}</link>
       <description>{$info.description}</description>
       <language>en-us</language>
       <pubDate>{$earliest_date}</pubDate>

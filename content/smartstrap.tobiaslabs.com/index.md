@@ -13,7 +13,7 @@ super simple markup. A lot of cool people like it because it's
 easy and enjoyable to write in.
 
 The template used is Smarty, mostly because it's a well written
-PHP templating engine with some good basic functionality buit in.
+PHP templating engine with some good basic functionality built in.
 
 The included template is the Twitter Bootstrap, because it's well
 written and conforms to specs pretty well.

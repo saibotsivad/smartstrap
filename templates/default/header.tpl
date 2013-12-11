@@ -46,11 +46,7 @@
           </a>
           <a class="brand" href="{$info.base_url}">{$info.site_title}</a>
           <div class="nav-collapse collapse">
-            <ul class="nav">
-              {foreach $menus as $menu}
-              <li class="{$menu.class}"><a href="{$menu.link}">{$menu.name}</a></li>
-              {/foreach}
-            </ul>
+            {include file="menu.tpl"}
             <form class="navbar-search pull-right" method="get" action="http://www.google.com/search">
               <input type="text" class="search-query" placeholder="Search" name="q">
               <input type="checkbox" name="sitesearch" value="{$info.baseurl}/template" checked="checked" style="display:none;">
