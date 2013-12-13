@@ -17,7 +17,7 @@ $smarty = new Smarty;
 $smarty->setTemplateDir('./template/');
 $smarty->setCompileDir('./cache/templates_c/');
 $smarty->setCacheDir('./cache/cache/');
-$smarty->caching = false;// Smarty::CACHING_LIFETIME_CURRENT;
+$smarty->caching = Smarty::CACHING_LIFETIME_CURRENT;
 
 $vars = parse_file(get_file_path($_GET['path']));
 $vars['info'] = $info;
