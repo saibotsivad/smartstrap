@@ -17,7 +17,7 @@ There's a [demo][demo], which was installed the following way:
 2. ...
 3. Profit?
 
-![That's pretty neat](http://smartstrap.com/content/thatsprettyneat.jpg "How neat is that?")
+![That's pretty neat](http://smartstrap.tobiaslabs.com/content/thatsprettyneat.jpg "How neat is that?")
 
 Customize
 ---------
