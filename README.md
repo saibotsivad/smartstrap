@@ -58,6 +58,6 @@ file, with anything as the value of the tag (see [here][archive] for an example)
 [smarty]: http://www.smarty.net/ "Smarty templating engine"
 [fortin]: http://michelf.ca/projects/php-markdown/ "Michel Fortin's PHP implementation of Markdown"
 [markdown]: http://daringfireball.net/projects/markdown/ "Markdown home"
-[demo]: http://smarkdown.tobiaslabs.com "Demo of this site in use"
+[demo]: http://smartstrap.tobiaslabs.com "Demo of this site in use"
 [labs]: http://tobiaslabs.com "Tobias Labs"
 [here]: https://github.com/saibotsivad/smartstrap/blob/master/content/archive.md "Demo of archive page"
