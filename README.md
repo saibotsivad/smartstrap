@@ -13,9 +13,9 @@ written and conforms to specs pretty well.
 
 There's a [demo][demo], which was installed the following way:
 
-1) On my server: `git clone https://github.com/saibotsivad/smartstrap.git ~/smartstrap.tobiaslabs.com`
-2) ...
-3) Profit?
+1. On my server: `git clone https://github.com/saibotsivad/smartstrap.git ~/smartstrap.tobiaslabs.com`
+2. ...
+3. Profit?
 
 ![That's pretty neat](http://smartstrap.com/content/thatsprettyneat.jpg "How neat is that?")
 
