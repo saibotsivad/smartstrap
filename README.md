@@ -11,9 +11,9 @@ PHP templating engine with some good basic functionality built in.
 The included template is the Twitter Bootstrap, because it's well
 written and conforms to specs pretty well.
 
-There's a [demo][demo], which was installed the following way:
+You can install it like this:
 
-1. On my server: `git clone https://github.com/saibotsivad/smartstrap.git ~/smartstrap.tobiaslabs.com`
+1. On my server: `git clone https://github.com/saibotsivad/smartstrap.git ~/public/www/mysite.com`
 2. ...
 3. Profit?
 
@@ -53,6 +53,11 @@ All other links will map like `site.com/any/folder/depth` to `./content/any/fold
 
 Right now the list of posts is displayed anywhere by putting the tag `archive_list` in the markdown
 file, with anything as the value of the tag (see [here][archive] for an example).
+
+License
+-------
+
+All code and content released under the [Very Open License](http://veryopenlicense.com).
 
 
 [smarty]: http://www.smarty.net/ "Smarty templating engine"
