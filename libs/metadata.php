@@ -79,6 +79,12 @@ function generate_link($file) {
 	return '/' . implode("/", $path_list);
 }
 
+function date_compare($a, $b) {
+    $t1 = strtotime($a['date']);
+    $t2 = strtotime($b['date']);
+    return $t1 - $t2;
+}
+
 function compile_markdown_files_metadata($folder, $output_file) {
 	$data = array();
 	foreach (file_list($folder) as $file) {
@@ -86,6 +92,7 @@ function compile_markdown_files_metadata($folder, $output_file) {
 		$data[$file]['link'] = generate_link($file);
 		unset($data[$file]['content']);
 	}
+	usort($data, 'date_compare');
 
 
 $data_before = <<<EOT
